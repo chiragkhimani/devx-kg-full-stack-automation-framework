@@ -20,4 +20,9 @@ public class ConfigReader {
         return prop.getProperty(key);
     }
 
+    public static void setProperty(String key, String value) {
+        prop.setProperty(key, value);
+    }
+
+
 }

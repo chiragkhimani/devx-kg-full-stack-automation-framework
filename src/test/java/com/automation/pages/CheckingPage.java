@@ -1,5 +1,6 @@
 package com.automation.pages;
 
+import com.automation.utils.ConfigReader;
 import org.junit.Assert;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -13,10 +14,10 @@ public class CheckingPage extends BasePage {
     WebElement accountownership;
 
     @FindBy(id = "name")
-    WebElement accountName;
+    WebElement accountNameInput;
 
     @FindBy(id = "openingBalance")
-    WebElement amount;
+    WebElement amountInput;
 
     @FindBy(id = "newCheckingSubmit")
     WebElement submitbtn;
@@ -25,14 +26,20 @@ public class CheckingPage extends BasePage {
     WebElement checkingpage;
 
     public void verifyCheckingPage() {
-        Assert.assertTrue(accountName.isDisplayed());
+        Assert.assertTrue(accountNameInput.isDisplayed());
     }
 
     public void checkingDetails() {
         checkingtype.click();
         accountownership.click();
-        accountName.sendKeys("Aidai");
-        amount.sendKeys("2020");
+
+        String accountName = "TestAccount" + getRandomNumber();
+        accountNameInput.sendKeys(accountName);
+        ConfigReader.setProperty("account.name", accountName);
+
+        int amount = getRandomNumber();
+        amountInput.sendKeys(amount + "");
+        ConfigReader.setProperty("transaction.amount", amount + "");
     }
 
     public void clickSubmitbtn() {

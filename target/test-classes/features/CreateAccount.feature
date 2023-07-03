@@ -10,8 +10,7 @@ Feature: Verify checking and saving account functionality
     When user enters new checking account details
     And click on submit button
     Then verify view checking account page is displayed
-    And verify  account creation success message is displayed
-
+    And verify account creation success message is displayed
 
   Scenario: Verify user can create new savings account
     Given user open the website
@@ -23,20 +22,5 @@ Feature: Verify checking and saving account functionality
     When user enters new savings account details
     And click on Submit button
     Then verify view savings account page is displayed
-    And Verify  account creation success message is displayed
-
-
-  Scenario: Verify user can create deposit money to the account
-    Given user open the website
-    When user enter the username "login.username" and password "login.password"
-    Then verify user is navigated to homepage
-    When user click on Deposit tab
-    Then verify deposit into account page is displayed
-    When user select account from the dropdown
-    And  enter the deposit amount
-    And click on submit Button
-    Then verify view checking and savings account page is displayed
-    And verify deposit entry is displayed in the transaction history
-
-
+    And verify account creation success message is displayed
 
